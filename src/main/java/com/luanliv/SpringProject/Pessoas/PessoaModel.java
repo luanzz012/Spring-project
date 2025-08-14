@@ -1,7 +1,7 @@
-package com.luanliv.SpringProject;
+package com.luanliv.SpringProject.Pessoas;
 
+import com.luanliv.SpringProject.Carros.CarrosModel;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -9,10 +9,13 @@ public class PessoaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String nome;
-    String email;
-    int idade;
+    private Long id;
+    private String nome;
+    private String email;
+    private int idade;
+    @ManyToOne
+    @JoinColumn(name = "carros_id")
+    private CarrosModel carros;
 
     public PessoaModel(){
 
